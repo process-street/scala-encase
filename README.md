@@ -2,14 +2,14 @@
 
 An Scala library for changing between camelCase, snake_case, kebab-case, and more.
   
-See also [encase-js](https://github.com/process-street/encase.js) for the JavaScript version. 
+See also [encase.js](https://github.com/process-street/encase.js) for the JavaScript version. 
 
 ## Installation
 
 In [SBT](http://http://www.scala-sbt.org/):
 
 ```
-libraryDependencies += "st.process" %% "scala-encase" % "1.0"
+// Still need to set this up
 ```
 
 ## Notes
@@ -17,9 +17,9 @@ libraryDependencies += "st.process" %% "scala-encase" % "1.0"
 This method will provides a global Encase object. That means that once you include it, you can use it like this:
 
 ```scala
-var str = 'camelCase';
+var str = "camelCase";
 var convertedStr = Encase.toLowerSnake(str);
-// = 'camel_case'
+// = "camel_case"
 ```
 
 Encase supports switching to 6 cases:
@@ -35,9 +35,9 @@ Encase automatically detects the "from" case, so you only have to tell it what y
 a general `separate` function for splitting up strings:
 
 ```scala
-val str = 'camelCase';
+val str = "camelCase";
 val words = Encase.separate(str);
-// = List('camel', 'Case')
+// = List("camel", "Case")
 ```
 
 In addition to `separate`, Encase provides a `convert` function for making arbitrary conversions to any case:
@@ -52,10 +52,10 @@ The arguments are:
 Here's an example for converting any casing to "colon case" (which is used in products like Redis for key naming):
 
 ```scala
-val str = 'UpperCamel';
+val str = "UpperCamel";
 def lowerCase = (_: String).toLowerCase
-val convertedStr = Encase.convert(lowerCase, lowerCase, ':', str);
-// = 'upper:camel'
+val convertedStr = Encase.convert(lowerCase, lowerCase, ":", str);
+// = "upper:camel"
 ```
 
 ## Author
